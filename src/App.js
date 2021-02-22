@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import Authorisation from './components/Authorisation'
+import MainContainer from './components/MainContainer'
+import { fetchFlights } from './redux/actionCreators/setFlights'
 import './App.css';
 
-function App() {
+const mapStateToProps = state => {
+  return {
+    isUserAuthorised: state.isUserAuthorised,
+    initialParams: state.initialRequestParams,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchFlights: (params) => dispatch(fetchFlights(params)),
+  }
+}
+
+function App({ isUserAuthorised, fetchFlights, initialParams }) {
+
+  useEffect( () => {
+    fetchFlights(initialParams)
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        {!isUserAuthorised && <Authorisation />}
+        {isUserAuthorised && <MainContainer />}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App)
