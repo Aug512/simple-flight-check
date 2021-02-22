@@ -16,6 +16,6 @@ function* fetchFlightsAsync({params}) {
     })
     yield put(requestFlightsSuccessful(getQuotes(data.Quotes, data)))
   } catch (error) {
-    yield put(requestFlightsError('Проверьте корректность введённых данных и повторите запрос'))
+    yield put(requestFlightsError(error.message))
   }
 }

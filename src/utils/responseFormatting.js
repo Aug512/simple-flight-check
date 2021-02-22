@@ -16,7 +16,7 @@ const getPlaceById = (id, placesArr) => {
   )
 }
 
-function formatPriceValue( number, decimals = 2, decPoint = ',', thousandsSep = ' ' ) {  // Format a number with grouped thousands
+function formatPriceValue( number, decimals = 2, decPoint = ',', thousandsSep = ' ' ) {
 
   const i = parseInt(number = (+number || 0).toFixed(decimals)) + ''
 
