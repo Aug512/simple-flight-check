@@ -93,3 +93,29 @@
     top: 6px;
   }
 }
+
+@media (max-width: 767px) {
+  .cardHeader {
+    flex-direction: column;
+    min-width: 270px;
+
+    .breadcrumbs {
+
+      &__back {
+        font-size: 1.3em;
+
+        &::after {
+          top: 3px;
+        }
+      }
+
+      &__current {
+        font-size: 1.3em;
+      }
+    }
+
+    .datepicker {
+      width: 250px;
+    }
+  }
+} 

@@ -104,3 +104,15 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 767px) {
+
+  .card {
+    width: auto;
+    max-width: 680px;
+  }
+
+  .favourites {
+    font-size: 0.9rem
+  }
+} 

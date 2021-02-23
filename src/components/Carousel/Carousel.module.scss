@@ -21,3 +21,9 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 767px) {
+  .carousel {
+    width: 80vw;
+  }
+}

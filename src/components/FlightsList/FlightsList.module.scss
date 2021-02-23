@@ -21,3 +21,10 @@
     border-radius: 2px;
   }
 }
+
+@media (max-width: 767px) {
+  .flightsList {
+    min-width: 250px;
+    max-height: 450px;
+  }
+}
