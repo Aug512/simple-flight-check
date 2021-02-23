@@ -6,7 +6,7 @@ import photo3 from '../assets/photo3.jpg'
 const imgArr = [photo1, photo2, photo3]
 
 const initialState = {
-  isUserAuthorised: getAuthorisation(),
+  isUserAuthorised: getAuthorisation(),   //проверка sessionStorage на налачие необходимого флага
   isLoading: true,
   flights: [],
   favouritesFlightsCounter: 0,
@@ -21,7 +21,7 @@ const initialState = {
     destination: 'JFK-sky',
     date: '2021-02'
   },
-  carouselImages: imgArr.concat(imgArr, imgArr)
+  carouselImages: imgArr.concat(imgArr, imgArr)   //сконкатил изображения, чтобы было больше элментов, 4е фото из макета достать не удалось
 }
 
 export default initialState

@@ -33,7 +33,7 @@ const CardHeader = ({ initialParams, fetchFlights }) => {
       </div>
       <label htmlFor='datepicker' className={styles.datepicker}>
         <span className={styles.datepicker__date}>
-          {dateToStringFormatter(Date.now(), monthsRU)}
+          {dateToStringFormatter(Date.now(), monthsRU)}   { /* получаем текущую дату и форматируем к заданному виду  */}
           {/* 07 июля 2020 */}                                                    { /* PERFECTPIXEL */}
         </span>
         <i className={styles.datepicker__icon}></i>
@@ -43,7 +43,7 @@ const CardHeader = ({ initialParams, fetchFlights }) => {
           className={styles.datepicker__input}
           defaultValue={datepickerDateFormatter()}
           onChange={(e) => {
-            e.target.labels[0].childNodes[0].data = dateToStringFormatter(e.target.valueAsNumber, monthsRU)
+            e.target.labels[0].childNodes[0].data = dateToStringFormatter(e.target.valueAsNumber, monthsRU)   //для лучшей поддержки браузерами сам инпут скрыт, дата выводится в <label>, по клику на неё открывается пикер от этого инпута
             fetchFlightsOnDate(e.target.value)
           }}
         /> 

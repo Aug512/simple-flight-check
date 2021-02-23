@@ -25,7 +25,7 @@ const Authorisation = ({ authorise }) => {
     const regexp = /\p{sc=Cyrillic}/gu
     const inputs = [form[0], form[1]]
 
-    inputs.forEach(input => {if (!input.validity.valid) {input.labels[0].style.color = '#EB1717'}})
+    inputs.forEach(input => {if (!input.validity.valid) {input.labels[0].style.color = '#EB1717'}}) //Меняю цвет заголовка только для невалидного инпута
 
     if (form.checkValidity() === false) {
 
@@ -42,7 +42,7 @@ const Authorisation = ({ authorise }) => {
     setValidated(true)
   }
 
-  const resetLabelsColors = e => {
+  const resetLabelsColors = e => {    //сброс цвета для заголовков
     const labels = [e.target.form[0].labels[0], e.target.form[1].labels[0]]
     labels.forEach( label => {label.style.color = ''})
   

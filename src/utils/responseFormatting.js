@@ -18,7 +18,7 @@ const getPlaceById = (id, placesArr) => {
   )
 }
 
-function formatPriceValue( number, decimals = 2, decPoint = ',', thousandsSep = ' ' ) {
+function formatPriceValue( number, decimals = 2, decPoint = ',', thousandsSep = ' ' ) {   // приводим число к строке вида 'тыс ед(,сотые)'
 
   const i = parseInt(number = (+number || 0).toFixed(decimals)) + ''
 
@@ -43,7 +43,7 @@ const getCurrency = (responseCurrency) => {
   )
 }
 
-const concatDates = (departureDate, quoteCachedTime, monthsLib) => {
+const concatDates = (departureDate, quoteCachedTime, monthsLib) => {    //тк API возвращает только дату (без времени) вылета и дату кэширования информации - склеиваю дату от первого и время от второго 
   const date = new Date(departureDate)
   const time = new Date(quoteCachedTime)
 
@@ -53,7 +53,7 @@ const concatDates = (departureDate, quoteCachedTime, monthsLib) => {
   return [`${day} ${monthsLib[month]}, ${year}`, `${hours}:${minutes < 10 ? '0' + minutes : minutes}`]
 }
 
-const generateId = (departureDate, quoteCachedTime) => {
+const generateId = (departureDate, quoteCachedTime) => {    //также склеиваю дату и привожу к UTC-строке, чтобы получить уникальный id для хранения состояния маршрутов в избранном
   const date = new Date(departureDate)
   const time = new Date(quoteCachedTime)
 
@@ -63,7 +63,7 @@ const generateId = (departureDate, quoteCachedTime) => {
   return new Date(year, month, day, hours, minutes).toUTCString()
 }
 
-export const getQuotes = (responseQuotes, rawResponse, monthsLib, state) => {
+export const getQuotes = (responseQuotes, rawResponse, monthsLib, state) => {   //получаем данные с API и приводим в удобный формат (без лишних свойств, )
   return responseQuotes.map( quote => {
     const id = generateId(quote.OutboundLeg.DepartureDate, quote.QuoteDateTime)
     return {
