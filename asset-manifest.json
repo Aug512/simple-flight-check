@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-flight-check/static/css/main.de97e72a.chunk.css",
+    "main.js": "/simple-flight-check/static/js/main.ffac8a5b.chunk.js",
+    "runtime-main.js": "/simple-flight-check/static/js/runtime-main.dee4af8d.js",
+    "static/css/2.100b230f.chunk.css": "/simple-flight-check/static/css/2.100b230f.chunk.css",
+    "static/js/2.30cd4f05.chunk.js": "/simple-flight-check/static/js/2.30cd4f05.chunk.js",
+    "index.html": "/simple-flight-check/index.html",
+    "static/js/2.30cd4f05.chunk.js.LICENSE.txt": "/simple-flight-check/static/js/2.30cd4f05.chunk.js.LICENSE.txt",
+    "static/media/Authorisation.module.scss": "/simple-flight-check/static/media/login-bg-copy.4f2268bb.jpg",
+    "static/media/photo1.f5341176.jpg": "/simple-flight-check/static/media/photo1.f5341176.jpg",
+    "static/media/photo2.bcbc5709.jpg": "/simple-flight-check/static/media/photo2.bcbc5709.jpg",
+    "static/media/photo3.e6e11630.jpg": "/simple-flight-check/static/media/photo3.e6e11630.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dee4af8d.js",
+    "static/css/2.100b230f.chunk.css",
+    "static/js/2.30cd4f05.chunk.js",
+    "static/css/main.de97e72a.chunk.css",
+    "static/js/main.ffac8a5b.chunk.js"
+  ]
+}
