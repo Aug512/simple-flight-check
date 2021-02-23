@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import Authorisation from './components/Authorisation'
-import MainContainer from './components/MainContainer'
+import Authorisation from './components/Authorisation/Authorisation'
+import MainContainer from './components/MainContainer/MainContainer'
 import { fetchFlights } from './redux/actionCreators/setFlights'
-import './App.css';
 
 const mapStateToProps = state => {
   return {
@@ -25,13 +24,11 @@ function App({ isUserAuthorised, fetchFlights, initialParams }) {
   }, [])
 
   return (
-    <div className="App">
-      <div className="App-header">
-        {!isUserAuthorised && <Authorisation />}
-        {isUserAuthorised && <MainContainer />}
-      </div>
-    </div>
-  );
+    <>
+      {!isUserAuthorised && <Authorisation />}
+      {isUserAuthorised && <MainContainer />}
+    </>
+  )
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

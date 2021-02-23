@@ -1,0 +1,158 @@
+.flightCard {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 17px;
+  padding-left: 12px;
+  margin: 0 7px;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+}
+
+.airplaneImage {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 119, 255, 0.05);
+  position: relative;
+  margin-right: 25px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: url('../../assets/plane.png')
+  }
+}
+
+.mainData {
+  width: 64%;
+}
+
+.data {
+  &Places {
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 22px;
+    width: 100%;
+    color: #424242;
+    margin-bottom: 0;
+
+    & > .from {
+      display: inline-block;
+      margin-right: 37px;
+      position: relative;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        width: 14px;
+        height: 10px;
+        top: 7px;
+        right: -26px;
+        background: url('../../assets/arrow.png');
+      }
+    }
+
+    & > .to {
+      display: inline-block;
+    } 
+  }
+
+  &Date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #878787;
+    margin-bottom: 0;
+
+    & > .date {
+      display: inline-block;
+      margin-right: 31px;
+      position: relative;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        width: 9px;
+        top: 10px;
+        right: -20px;
+        border-bottom: 1px solid #C4C4C4;
+      }
+    }
+
+    & > .time {
+      display: inline-block;
+    }
+  }
+
+  &Carrier {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #878787;
+    margin-bottom: 0;
+  }
+}
+
+.additionalData {
+  flex-grow: 1;
+  padding-right: 8px;
+}
+
+.favourites {
+  position: relative;
+  height: 20px;
+  margin-bottom: 17px;
+
+  &True {
+    content: "";
+    cursor: pointer;
+    width: 23px;
+    height: 20px;
+    position: absolute;
+    top: -3px;
+    right: 3px;
+    background: url('../../assets/like.png');
+    background-size: contain;
+  }
+
+  &False {
+    content: "";
+    cursor: pointer;
+    width: 23px;
+    height: 20px;
+    position: absolute;
+    top: -3px;
+    right: 3px;
+    background: url('../../assets/notLike.png');
+  }
+}
+
+.price {
+  margin-bottom: 0;
+  text-align: right;
+  position: relative;
+
+  &Label {
+    position: absolute;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+    left: 0;
+    top: 3px;
+  }
+
+  &Value {
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.1px;
+    color: #424242;
+    margin-right: -1px;
+  }
+}

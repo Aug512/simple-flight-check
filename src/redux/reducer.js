@@ -50,14 +50,16 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         flights: toggleFavouriteState(true),
-        favouritesFlightsCounter: state.favouritesFlightsCounter + 1
+        favouritesFlightsCounter: state.favouritesFlightsCounter + 1,
+        favouritesIds: [...state.favouritesIds, action.id]
       }
       
     case REMOVE_FLIGHT_FROM_FAVOURITES:
       return {
         ...state,
         flights: toggleFavouriteState(false),
-        favouritesFlightsCounter: state.favouritesFlightsCounter - 1
+        favouritesFlightsCounter: state.favouritesFlightsCounter - 1,
+        favouritesIds: [...state.favouritesIds.filter(id => id !== action.id)]
       }
     
     default:

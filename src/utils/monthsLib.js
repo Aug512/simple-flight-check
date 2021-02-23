@@ -1,4 +1,4 @@
-const months = [
+export const monthsEN = [
   'January',
   'February',
   'March',
@@ -13,4 +13,17 @@ const months = [
   'December'
 ]
 
-export default months
+export const monthsRU = [
+  'января',
+  'февраля',
+  'марта',
+  'апреля',
+  'мая',
+  'июня',
+  'июля',
+  'августа',
+  'сентября',
+  'октября',
+  'ноября',
+  'декабря'
+]

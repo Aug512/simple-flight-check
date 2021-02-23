@@ -2,7 +2,8 @@ import { requestFlights, requestFlightsError, requestFlightsSuccessful } from '.
 import { FETCH_FLIGHTS } from './actions/flights'
 import fetchDataFromAPI from '../utils/fetchDataFromAPI'
 import { getQuotes } from '../utils/responseFormatting'
-import { takeEvery, put, call} from 'redux-saga/effects'
+import { select, takeEvery, put, call} from 'redux-saga/effects'
+import { monthsRU } from '../utils/monthsLib'
 
 export function* flightsFetchWatcher() {
   yield takeEvery(FETCH_FLIGHTS, fetchFlightsAsync)
@@ -14,7 +15,8 @@ function* fetchFlightsAsync({params}) {
     const data = yield call(() => {
       return fetchDataFromAPI(params)
     })
-    yield put(requestFlightsSuccessful(getQuotes(data.Quotes, data)))
+    const state = yield select()
+    yield put(requestFlightsSuccessful(getQuotes(data.Quotes, data, monthsRU, state)))
   } catch (error) {
     yield put(requestFlightsError(error.message))
   }

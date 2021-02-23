@@ -1,0 +1,23 @@
+.flightsList {
+  max-height: 525px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+   
+  &::-webkit-scrollbar-track {
+    margin-top: 9px;
+    width: 2px;
+    background: #E7E7E7;
+    border-radius: 2px;
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    width: 2px;
+    background: #1157A7;
+    border-radius: 2px;
+  }
+}

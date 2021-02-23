@@ -1,0 +1,23 @@
+.carousel {
+  margin-left: -4px;
+  height: 173px;
+  display: flex;
+  overflow-x: scroll;
+  margin-bottom: 8px;
+
+  &__image {
+    margin-right: 4px;
+  }
+
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
+   
+  &::-webkit-scrollbar-track {
+    opacity: 0
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    opacity: 0;
+  }
+}
