@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const Flight = ({ flightData, setFavourites}) => {
+const Flight = ({ flightData, setFavourites }) => {
 
   return (
 

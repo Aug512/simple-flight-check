@@ -43,7 +43,7 @@ const CardHeader = ({ initialParams, fetchFlights }) => {
           className={styles.datepicker__input}
           defaultValue={datepickerDateFormatter()}
           onChange={(e) => {
-            e.target.labels[0].childNodes[0].data = dateToStringFormatter(e.target.valueAsNumber, monthsRU)   //для лучшей поддержки браузерами сам инпут скрыт, дата выводится в <label>, по клику на неё открывается пикер от этого инпута
+            e.target.labels[0].childNodes[0].innerText = dateToStringFormatter(e.target.valueAsNumber, monthsRU)   //для лучшей поддержки браузерами сам инпут скрыт, дата выводится в <label>, по клику на неё открывается пикер от этого инпута
             fetchFlightsOnDate(e.target.value)
           }}
         /> 

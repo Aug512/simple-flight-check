@@ -19,7 +19,7 @@ const initialState = {
     locale: 'RU-ru',
     origin: 'SVO-sky',
     destination: 'JFK-sky',
-    date: '2021-02'
+    date: '2021-03'
   },
   carouselImages: imgArr.concat(imgArr, imgArr)   //сконкатил изображения, чтобы было больше элментов, 4е фото из макета достать не удалось
 }

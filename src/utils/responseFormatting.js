@@ -64,8 +64,8 @@ const generateId = (departureDate, quoteCachedTime) => {    //также скл�
 }
 
 export const getQuotes = (responseQuotes, rawResponse, monthsLib, state) => {   //получаем данные с API и приводим в удобный формат (без лишних свойств, )
-  return responseQuotes.map( quote => {
-    const id = generateId(quote.OutboundLeg.DepartureDate, quote.QuoteDateTime)
+  return responseQuotes.map( (quote, index) => {
+    const id = generateId(quote.OutboundLeg.DepartureDate, quote.QuoteDateTime) + index
     return {
       id,
       minPrice: formatPriceValue(quote.MinPrice, rawResponse.Currencies[0].DecimalDigits, rawResponse.Currencies[0].DecimalSeparator,rawResponse.Currencies[0].ThousandsSeparator),

@@ -20,7 +20,7 @@ const FlightsList = ({ flights }) => {
 
   return (
     <div className={styles.flightsList}>
-      {flights.map( flight => <Flight key={flight.id} totalData={flights} flightData={flight} />)}
+      {flights.map( flight => <Flight key={flight.id} flightData={flight} />)}
     </div>
   )
 }
