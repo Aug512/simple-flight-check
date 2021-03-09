@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Col, Form, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { authorise } from '../../redux/actionCreators/setAuthorisaton'
@@ -16,6 +16,9 @@ const Authorisation = ({ authorise }) => {
   const [validated, setValidated] = useState(false);
   const [passMessage, setPassMessage] = useState('Пароль должен содержать не менее 8 символов')
 
+  const loginRef = useRef(null)
+  const passwordRef = useRef(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     event.stopPropagation()
@@ -24,8 +27,11 @@ const Authorisation = ({ authorise }) => {
     const password = form[1].value
     const regexp = /\p{sc=Cyrillic}/gu
     const inputs = [form[0], form[1]]
+    const labels = [loginRef.current, passwordRef.current]
 
-    inputs.forEach(input => {if (!input.validity.valid) {input.labels[0].style.color = '#EB1717'}}) //Меняю цвет заголовка только для невалидного инпута
+    inputs.forEach((input, index) => {
+      if (!input.validity.valid) {labels[index].style.color = '#EB1717'}
+    }) //Меняю цвет заголовка только для невалидного инпута
 
     if (form.checkValidity() === false) {
 
@@ -42,9 +48,10 @@ const Authorisation = ({ authorise }) => {
     setValidated(true)
   }
 
-  const resetLabelsColors = e => {    //сброс цвета для заголовков
-    const labels = [e.target.form[0].labels[0], e.target.form[1].labels[0]]
-    labels.forEach( label => {label.style.color = ''})
+  const resetLabelsColors = () => {    //сброс цвета для заголовков
+
+    loginRef.current.style.color = ''
+    passwordRef.current.style.color = ''
   
     setValidated(false)
   }
@@ -53,10 +60,10 @@ const Authorisation = ({ authorise }) => {
     <div className={styles.authorisationScreen}>
       <div className={'card ' + styles.formCard}>
         <h2 className={styles.title}>Simple Flight Check</h2>
-        <Form noValidate validated={validated} onSubmit={e => handleSubmit(e)} onChange={(e) => resetLabelsColors(e)}>
+        <Form noValidate validated={validated} onSubmit={e => handleSubmit(e)} onChange={resetLabelsColors}>
           <Form.Row>
             <Form.Group as={Col} controlId="validationCustom01" className={styles.formGroup}>
-              <Form.Label className={styles.inputLabel}>Логин</Form.Label>
+              <Form.Label className={styles.inputLabel} ref={loginRef}>Логин</Form.Label>
               <Form.Control type="email" required={true} className={styles.inputField} autoComplete='none' />
               <Form.Control.Feedback type='invalid' className={styles.feedbackMessage}>
                 Введите существующий email
@@ -65,7 +72,7 @@ const Authorisation = ({ authorise }) => {
           </Form.Row>
             <Form.Row>
             <Form.Group as={Col} controlId="validationCustom02" className={styles.formGroup}>
-              <Form.Label className={styles.inputLabel}>Пароль</Form.Label>
+              <Form.Label className={styles.inputLabel} ref={passwordRef}>Пароль</Form.Label>
               <Form.Control
                 required
                 type="Password"
